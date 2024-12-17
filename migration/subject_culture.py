@@ -24,7 +24,7 @@ def culture(path, domain):
 
 def main():
     sql = 'INSERT INTO subject_culture (sub_domain, credit, name, number)\nVALUES '
-    dataset_path, result_file = './datasets/subject_culture', './sql/subject_culture.sql'
+    dataset_path, result_file = '../datasets/subject_culture', '../sql/subject_culture.sql'
     domains = os.listdir(dataset_path)
     for domain in domains:
         sql += culture(dataset_path, domain)
