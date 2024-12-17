@@ -444,3 +444,5 @@ pip-selfcheck.json
 
 datasets/common_member
 sql/common_member.sql
+sql/qna_answer.sql
+sql/qna_question.sql
