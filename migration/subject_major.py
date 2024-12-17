@@ -31,9 +31,9 @@ def save_file(text, file_path):
         file.write(text)
 
 
-def major(pk, url):
+def major(pk, code):
     sql = ''
-    request = requests.get(url)
+    request = requests.get(f'https://www.smu.ac.kr/_custom/smu/_app/curriculum.do?srShyr=all&srSust={code}')
     source = request.text
     soup = bs(source, "html.parser")
     datas = soup.find_all('tr')[1:]
@@ -54,8 +54,8 @@ def main():
     total = len(departments)
     for i, department in enumerate(departments):
         print(f'{i + 1}/{total}')
-        pk, url = department['id'], department['url']
-        sql += major(pk, url)
+        pk, code = department['id'], department['code']
+        sql += major(pk, code)
     sql = sql[:-6]
     sql += ';\n\nCOMMIT;\n'
     save_file(sql, result_file)
