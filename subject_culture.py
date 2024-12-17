@@ -13,21 +13,23 @@ def save_file(text, file_path):
 
 
 def culture(path, domain):
-    sql, insert = '', 'INSERT INTO subject_culture (sub_domain, credit, name, number)\nVALUES '
+    sql = ''
     sub_domain = domain.split('.')[0]
     datas = read_json(os.path.join(path, domain))
     for data in datas:
         name, number, credit = data['name'], data['number'], data['credit']
-        sql += f"{insert}('{sub_domain}', {credit}, '{name}', '{number}');\n"
+        sql += f"('{sub_domain}', {credit}, '{name}', '{number}'),\n\t   "
     return sql
 
 
 def main():
-    sql = ''
+    sql = 'INSERT INTO subject_culture (sub_domain, credit, name, number)\nVALUES '
     dataset_path, result_file = 'datasets/subject_culture', 'sql/subject_culture.sql'
     domains = os.listdir(dataset_path)
     for domain in domains:
         sql += culture(dataset_path, domain)
+    sql = sql[:-6]
+    sql += ';\n\nCOMMIT;\n'
     save_file(sql, result_file)
 
 
