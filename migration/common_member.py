@@ -25,7 +25,7 @@ def get_year(year_id):
 
 
 def main():
-    sql = 'INSERT INTO COMMON_MEMBER (username, password, name, email, department_id, year_id, role, created_at, updated_at)\nVALUES '
+    sql = 'INSERT INTO common_member (username, password, name, email, department_id, year_id, role, created_at, updated_at)\nVALUES '
     user_file, profile_file, result_file = '../datasets/common_member/auth_user.json', '../datasets/common_member/accounts_profile.json', '../sql/common_member.sql'
     users, profiles = read_json(user_file), read_json(profile_file)
     profiles = list2dict(profiles)
@@ -34,8 +34,8 @@ def main():
         if pk in profiles:
             profile = profiles[pk]
             username, password, email = user['username'], user['password'], user['email']
-            name, department_id, year_id = profile['name'], profile['department_id'], get_year(profile['year_id'])
-            sql += f"('{username}', '{password}', '{name}', '{email}', {department_id}, {year_id}, 'ROLE_USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),\n\t   "
+            name, department_id, year_id, date_joined = profile['name'], profile['department_id'], get_year(profile['year_id']), user['date_joined']
+            sql += f"('{username}', '{password}', '{name}', '{email}', {department_id}, {year_id}, 'ROLE_USER', '{date_joined}', '{date_joined}'),\n\t   "
     sql = sql[:-6]
     sql += ';\n\nCOMMIT;\n'
     save_file(sql, result_file)
