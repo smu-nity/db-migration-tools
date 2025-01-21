@@ -5,11 +5,6 @@
     "credit": 3
   },
   {
-    "number": "HALF0628",
-    "name": "현대음악과문화",
-    "credit": 3
-  },
-  {
     "number": "HALF6071",
     "name": "오페라의이해와감상",
     "credit": 3
@@ -32,6 +27,11 @@
   {
     "number": "HALF9356",
     "name": "현대미술사와이론",
+    "credit": 3
+  },
+  {
+    "number": "HALF9447",
+    "name": "기업메세나와예술을통한사회공헌",
     "credit": 3
   }
 ]
