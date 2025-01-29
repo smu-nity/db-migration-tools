@@ -1,4 +1,4 @@
-INSERT INTO common_term(year_value, semester)
+INSERT INTO common_term (year_value, semester)
 VALUES (2023, 'FIRST'),
        (2023, 'SECOND'),
        (2024, 'FIRST'),
