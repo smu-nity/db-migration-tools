@@ -1,6 +1,5 @@
 INSERT INTO core_standard (year_id, category, total)
-VALUES
-       (2, 'ALL', 130),
+VALUES (2, 'ALL', 130),
        (2, 'MAJOR_ADVANCED', 15),
        (2, 'MAJOR_OPTIONAL', 45),
        (2, 'CULTURE', 36),
