@@ -1,7 +1,7 @@
-INSERT INTO common_year(year_name)
+INSERT INTO common_year (year_name)
 VALUES ('졸업생');
 
-INSERT INTO common_year(year_name, year_value)
+INSERT INTO common_year (year_name, year_value)
 VALUES ('2017', 2017),
        ('2018', 2018),
        ('2019', 2019),
